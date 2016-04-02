@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="mrM-bp-fRV" customClass="LeftView">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人中心" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9y-yf-y6i">
+                    <rect key="frame" x="0.0" y="49" width="80" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="SgB-Sc-Mnb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqt-RG-QAN">
+                    <rect key="frame" x="0.0" y="170" width="80" height="28"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="看过">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="browseRecordAction:" destination="mrM-bp-fRV" eventType="touchUpInside" id="gNl-Xv-q5D"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWM-BU-vXb">
+                    <rect key="frame" x="0.0" y="141" width="80" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="YXq-4H-JUZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="清除收藏">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clearCollectionAction:" destination="mrM-bp-fRV" eventType="touchUpInside" id="8qr-XF-TIr"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zW9-FF-ttI">
+                    <rect key="frame" x="0.0" y="111" width="80" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="收藏">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="CollectionAction:" destination="mrM-bp-fRV" eventType="touchUpInside" id="iOi-0G-0XW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGV-mS-l34">
+                    <rect key="frame" x="0.0" y="199" width="80" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="YoN-fd-cZw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="清除看过">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clearBrowseRecordAction:" destination="mrM-bp-fRV" eventType="touchUpInside" id="2Ke-wJ-ScK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dth-B8-kME">
+                    <rect key="frame" x="0.0" y="232" width="80" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="28" id="uWS-sA-jkE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="退出登录">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.cornerRadius">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="self.layer.borderWidth">
+                            <real key="value" value="0.10000000000000001"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="clearBrowseRecordAction:" destination="mrM-bp-fRV" eventType="touchUpInside" id="QD7-dG-LPX"/>
+                        <action selector="exitLogin:" destination="mrM-bp-fRV" eventType="touchUpInside" id="spn-Sw-nog"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="qqt-RG-QAN" firstAttribute="centerX" secondItem="nGV-mS-l34" secondAttribute="centerX" id="43H-4f-1W8"/>
+                <constraint firstItem="qqt-RG-QAN" firstAttribute="top" secondItem="QWM-BU-vXb" secondAttribute="bottom" constant="1" id="CEI-DF-psK"/>
+                <constraint firstItem="zW9-FF-ttI" firstAttribute="top" secondItem="c9y-yf-y6i" secondAttribute="bottom" constant="28" id="G9N-Uo-F2l"/>
+                <constraint firstItem="dth-B8-kME" firstAttribute="trailing" secondItem="c9y-yf-y6i" secondAttribute="trailing" id="H6Q-na-UZC"/>
+                <constraint firstItem="nGV-mS-l34" firstAttribute="top" secondItem="qqt-RG-QAN" secondAttribute="bottom" constant="1" id="HJb-gx-80q"/>
+                <constraint firstItem="dth-B8-kME" firstAttribute="top" secondItem="nGV-mS-l34" secondAttribute="bottom" constant="5" id="IRo-1N-bou"/>
+                <constraint firstItem="QWM-BU-vXb" firstAttribute="leading" secondItem="mrM-bp-fRV" secondAttribute="leading" id="JVw-cx-LTG"/>
+                <constraint firstItem="nGV-mS-l34" firstAttribute="leading" secondItem="mrM-bp-fRV" secondAttribute="leading" id="K5o-5b-pI3"/>
+                <constraint firstItem="dth-B8-kME" firstAttribute="leading" secondItem="nGV-mS-l34" secondAttribute="leading" id="OCB-Ey-SFp"/>
+                <constraint firstAttribute="trailing" secondItem="QWM-BU-vXb" secondAttribute="trailing" id="PxS-d7-TWB"/>
+                <constraint firstItem="qqt-RG-QAN" firstAttribute="centerX" secondItem="zW9-FF-ttI" secondAttribute="centerX" id="STy-Qh-GAw"/>
+                <constraint firstItem="QWM-BU-vXb" firstAttribute="top" secondItem="zW9-FF-ttI" secondAttribute="bottom" constant="1" id="bOj-f0-enB"/>
+                <constraint firstItem="QWM-BU-vXb" firstAttribute="top" secondItem="mrM-bp-fRV" secondAttribute="top" constant="141" id="ewN-sm-cjG"/>
+                <constraint firstItem="QWM-BU-vXb" firstAttribute="leading" secondItem="qqt-RG-QAN" secondAttribute="leading" id="jbS-cv-Hjv"/>
+                <constraint firstItem="dth-B8-kME" firstAttribute="leading" secondItem="c9y-yf-y6i" secondAttribute="leading" id="jcL-3X-db0"/>
+                <constraint firstItem="QWM-BU-vXb" firstAttribute="leading" secondItem="zW9-FF-ttI" secondAttribute="leading" id="q3X-RU-HXd"/>
+                <constraint firstItem="qqt-RG-QAN" firstAttribute="centerX" secondItem="QWM-BU-vXb" secondAttribute="centerX" id="vEJ-sh-RXq"/>
+                <constraint firstItem="dth-B8-kME" firstAttribute="trailing" secondItem="nGV-mS-l34" secondAttribute="trailing" id="yYz-0Y-opu"/>
+                <constraint firstItem="nGV-mS-l34" firstAttribute="top" secondItem="mrM-bp-fRV" secondAttribute="top" constant="199" id="yx0-KN-mlQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="280" y="339"/>
+        </view>
+    </objects>
+</document>

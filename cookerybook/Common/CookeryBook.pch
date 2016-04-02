@@ -1,0 +1,14 @@
+//
+//  CookeryBook.pch
+//  cookerybook
+//
+//  Created by hmy2015 on 15/9/29.
+//  Copyright (c) 2015年 何米颖大天才. All rights reserved.
+//
+
+#ifndef cookerybook_CookeryBook_pch
+#define cookerybook_CookeryBook_pch
+
+#import "Common.h"
+
+#endif
