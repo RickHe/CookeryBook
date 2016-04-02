@@ -39,7 +39,6 @@
     if (self) {
         
         self.view.backgroundColor = [UIColor colorWithHexString:@"efeff4"];
-        
         self.view.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(Tap:)];
         [self.view addGestureRecognizer:tap];
@@ -47,16 +46,12 @@
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self creatView];
 }
 
 - (void)creatView{
-    
-    
     _headView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     _headView.backgroundColor=[UIColor colorWithHexString:@"f99740"];
     [self.view addSubview:_headView];
@@ -79,7 +74,6 @@
         make.size.mas_equalTo(CGSizeMake(20*scaleX, 30*scaleY));
     }];
     
-    
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:view];
@@ -88,7 +82,6 @@
         make.top.mas_equalTo(_titleLab.mas_bottom).offset(30*scaleY);
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, 99.5*scaleY));
     }];
-    
     
     UILabel *label1 = [[UILabel alloc]init];
     label1.text = @"邮箱";
@@ -99,19 +92,6 @@
         make.top.mas_equalTo(view.mas_top).offset(18*scaleY);
         make.size.mas_equalTo(CGSizeMake(59*scaleX, 14*scaleY));
     }];
-    
-    
-    //    UILabel *label2 = [[UILabel alloc] init];
-    //    label2.text = @"验证码";
-    //    label2.font = [UIFont systemFontOfSize:16];
-    //    [self.view addSubview:label2];
-    //    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.mas_equalTo(self.view.mas_left).offset(12*scaleX);
-    //        make.top.mas_equalTo(_titleLab.mas_bottom).offset(97*scaleY);
-    //        make.size.mas_equalTo(CGSizeMake(59*scaleX, 14*scaleY));
-    //    }];
-    
-    
     
     //邮箱地址输入框
     mailField = [[UITextField alloc] init];
@@ -128,7 +108,6 @@
         make.size.mas_equalTo(CGSizeMake(190*scaleX, 40*scaleY));
     }];
     
-    
     UIView *lineView1 = [[UIView alloc] init];
     lineView1.backgroundColor = [UIColor colorWithHexString:@"#d5d7dc"];
     [self.view addSubview:lineView1];
@@ -138,45 +117,10 @@
         make.size.mas_equalTo(CGSizeMake(296*scaleX, 0.5*scaleY));
         
     }];
-    
-    
-    //    //验证码输入框
-    //    codeField = [[UITextField alloc] init];
-    //    codeField.font = [UIFont systemFontOfSize:15];
-    //    codeField.placeholder = @"请输入您验证码";
-    //    codeField.tag = 101;
-    //    codeField.delegate = self;
-    //    codeField.keyboardType = UIKeyboardTypeNumberPad;
-    //    [self.view addSubview:codeField];
-    //    [codeField mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.mas_equalTo(self.view.mas_left).offset(80*scaleX);
-    //        make.centerY.mas_equalTo(label2.mas_centerY);
-    //        make.size.mas_equalTo(CGSizeMake(120*scaleX, 40*scaleY));
-    //    }];
-    //
-    //    //获取验证码按钮
-    //    getBtn = [[UIButton alloc] init];
-    //    getBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-    //    getBtn.enabled = NO;
-    //    [getBtn setTitle:@"获取验证码" forState:UIControlStateNormal];
-    //    getBtn.backgroundColor = [UIColor colorWithHexString:@"#f99740"];
-    //    getBtn.titleLabel.lineBreakMode = 0 ;
-    //    getBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-    //    [getBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    //    [getBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
-    //    [getBtn addTarget:self action:@selector(getCodeAction:) forControlEvents:UIControlEventTouchUpInside];
-    //    [self.view addSubview:getBtn];
-    //    [getBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.right.mas_equalTo(self.view.mas_right);
-    //        make.bottom.mas_equalTo(view.mas_bottom);
-    //
-    //        make.size.mas_equalTo(CGSizeMake(108*scaleX, 50*scaleY));
-    //    }];
-    
+
     //下一步按钮
     confirmBtn = [[UIButton alloc] init];
     confirmBtn.layer.cornerRadius = 22;
-    
     [confirmBtn setTitle:@"通过邮件找回" forState:UIControlStateNormal];
     [confirmBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [confirmBtn setTitleShadowColor:[UIColor lightGrayColor] forState: UIControlStateHighlighted];
@@ -188,18 +132,16 @@
         make.top.mas_equalTo(self.view.top).offset(240*scaleY);
         make.size.mas_equalTo(CGSizeMake(215*scaleX, 44*scaleY));
     }];
-    
-    
 }
 
 #pragma mark -- UITextFieldDelegate
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField.tag == 101) {
-        
         flag = 101;
     }
-    else flag = 100;
-    
+    else {
+        flag = 100;
+    }
     return YES;
 }
 
@@ -210,46 +152,13 @@
 }
 
 #pragma mark --Action
-
 - (void)backAction:(UIButton *)btn{
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
-
-- (void)getCodeAction:(UIButton *)btn{
-    
-    //    if([RegexTool validateUserPhone:mailField.text] || [RegexTool validateEmail:mailField.text]){
-    //
-    //        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    //        [params setObject:mailField.text forKey:@"account"];
-    //
-    //        [AFNetClient POST_Path:SendCode params:params completed:^(NSData *stringData, id JSONDict) {
-    //
-    //            NSNumber *code = [JSONDict objectForKey:@"Code"];
-    //            if ([code isEqual:@1]) {
-    //                NSString *message = [JSONDict objectForKey:@"Message"];
-    //                [MBProgressHUD showError:message toView:self.view];
-    //
-    //
-    //            }else if ([code isEqual:@0]){
-    //                date = [NSDate date];
-    //                count = 60;
-    //                getBtn.enabled = NO;
-    //                timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerAction) userInfo:nil repeats:YES];
-    //            }
-    //        } failed:^(NSError *error) {
-    //            [MBProgressHUD showError:@"连接失败" toView:self.view];
-    //        }];
-    //    }else{
-    //        [MBProgressHUD showError:@"请输入正确邮箱名" toView:self.view];
-    //    }
-}
-
 
 -(void)Tap:(UITapGestureRecognizer *)tap
 {
     [self.view endEditing:YES];
-    
 }
 
 -(void)mailFieldDidChange:(UITextField *)mailField1{

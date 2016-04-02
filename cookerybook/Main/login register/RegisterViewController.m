@@ -45,15 +45,13 @@
     UILabel *labnum;
     // 电话
     UITextField *TelNumberField;
-    
     NSString *queueidStr;
-    
     //注册什么不符合标准
     NSString *messageStr;
-    
     UIImageView *imageviewSelect;
     UIImageView *imageviewSelect1;
 }
+
 @end
 
 @implementation RegisterViewController
@@ -61,26 +59,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
     //标题
     _RegisterBackView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    
     if (IS_IPHONE_4 || IS_IPHONE_5) {
         UIScrollView *scrollview1 = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -20, kScreenWidth, kScreenHeight)];
         scrollview1.contentSize = CGSizeMake(kScreenWidth, kScreenHeight+80);
         [scrollview1 addSubview:_RegisterBackView];
         [self.view addSubview:scrollview1];
-        
     }else{
         [self.view addSubview:_RegisterBackView];
     }
-    
     self.view.backgroundColor=[UIColor colorWithHexString:@"#e0e2e5"];
     _viewhead = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
     _viewhead.backgroundColor=[UIColor colorWithHexString:@"f99740"];
     [self.view addSubview:_viewhead];
-    
     
     _titleLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 20, kScreenWidth, 44)];
     _titleLab.text=@"注册";
@@ -89,7 +81,6 @@
     _titleLab.backgroundColor=[UIColor colorWithHexString:@"f99740"];
     _titleLab.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:_titleLab];
-    
     
     _LeftBt=[[UIButton alloc]init];
     [_LeftBt setImage:[UIImage imageNamed:@"Arrow-white"] forState:UIControlStateNormal];
@@ -101,7 +92,6 @@
         make.centerY.mas_equalTo(_titleLab.mas_centerY);
         make.size.mas_equalTo(CGSizeMake(20*scaleX, 30*scaleY));
     }];
-    
     
     _rightBt=[UIButton buttonWithType:UIButtonTypeCustom];
     [_rightBt setTitle:@"提交" forState:UIControlStateNormal];
@@ -115,15 +105,10 @@
         make.size.mas_equalTo(CGSizeMake(38*scaleX, 33*scaleY));
     }];
     
-    
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(gestureTap)];
     [self.view addGestureRecognizer:tap];
-    
     [_RegisterBackView addSubview:scrollview];
-    
-    
     //用户名背景
-    
     UIView *viewUserName=[[UIView alloc]init];
     viewUserName.backgroundColor=[UIColor whiteColor];
     [_RegisterBackView addSubview:viewUserName];
@@ -179,7 +164,6 @@
         make.size.mas_equalTo(CGSizeMake(64*scaleX, 16*scaleY));
     }];
     
-    
     //姓名
     MailField=[[UITextField alloc]init];
     MailField.placeholder=@"请输入邮箱";
@@ -234,7 +218,6 @@
         make.size.mas_equalTo(CGSizeMake(220*scaleX, 49.5*scaleY));
     }];
     
-    
     //重新输入密码背景
     UIView *viewRePassword=[[UIView alloc]init];
     viewRePassword.backgroundColor=[UIColor whiteColor];
@@ -245,7 +228,6 @@
         make.top.mas_equalTo(_RegisterBackView.mas_top).offset(244*scaleY);
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, 49.5*scaleY));
     }];
-    
     UILabel *labRePassword=[[UILabel alloc]init];
     labRePassword.text=@"确认密码";
     labRePassword.font=[UIFont systemFontOfSize:16];
@@ -256,7 +238,6 @@
         make.top.mas_equalTo(viewRePassword.mas_top).offset(17*scaleY);
         make.size.mas_equalTo(CGSizeMake(64*scaleX, 16*scaleY));
     }];
-    
     
     //重写密码
     RePassField=[[UITextField alloc]init];
@@ -282,7 +263,6 @@
         make.top.mas_equalTo(_RegisterBackView.mas_top).offset(294*scaleY);
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, 49.5*scaleY));
     }];
-    
     UILabel *labTelNumber=[[UILabel alloc]init];
     labTelNumber.text=@"电话";
     labTelNumber.font=[UIFont systemFontOfSize:16];
@@ -388,72 +368,10 @@
             }
         }];
     }
-    
     return ;
 }
 
 #pragma mark ---获取验证码
--(void)GetRegistNum{
-    //    if ([NameField.text isEqualToString:@""]) {
-    //        [MBProgressHUD showError:@"您的用户名为空，请输入" toView:self.view];
-    //        return;
-    //    }
-    //    if ([MailField.text isEqualToString:@""]){
-    //        [MBProgressHUD showError:@"您的邮箱为空，请重新输入" toView:self.view];
-    //        return;
-    //    }
-    //    if(![RegexTool validateEmail:MailField.text]){
-    //        [MBProgressHUD showError:@"请输入合法邮箱" toView:self.view];
-    //        return;
-    //    }
-    //    if (PassField.text.length < 6){
-    //        [MBProgressHUD showError:@"密码不能少于六位" toView:self.view];
-    //        return;
-    //    }
-    //    if (![PassField.text isEqualToString:RePassField.text]){
-    //        [MBProgressHUD showError:@"两次输入密码不同，请重新输入" toView:self.view];
-    //        return;
-    //    }
-    //
-    //    NSUserDefaults   *userDefaultes = [NSUserDefaults standardUserDefaults];
-    //    NSString  *imei=[userDefaultes objectForKey:@"UUID"];
-    //    NSMutableDictionary  *paramDic=[[NSMutableDictionary  alloc]initWithCapacity:0];
-    //    [paramDic  setValue:NameField.text forKey:@"fullname"];
-    //    [paramDic  setValue:PassField.text forKey:@"password"];
-    //    [paramDic  setValue:MailField.text forKey:@"account"];
-    //    [paramDic  setValue:@"0"forKey:@"accounttype"];
-    //    [paramDic  setValue:imei forKey:@"imei"];
-    //    //上传任务
-    //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //        [AFNetClient  POST_Path:SendRegister params:paramDic completed:^(NSData *stringData, id JSONDict) {
-    //
-    //            NSString *message1;
-    //            NSNumber *code=[JSONDict objectForKey:@"Code"];
-    //            if ([code isEqual:@1]&&[[JSONDict objectForKey:@"Message"] isEqualToString:@"提交的数据不合法"]) {
-    //                message1=@"请补全您的信息";
-    //
-    //            }else if ([[JSONDict objectForKey:@"Data"] isEqual:[NSNull null]]) {
-    //                message1=[JSONDict objectForKey:@"Message"];
-    //
-    //            }else{
-    //
-    //                queueidStr=[[JSONDict objectForKey:@"Data"] objectForKey:@"QueueId"];
-    //                //计时器
-    //                NSTimer *time=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(Calculate:) userInfo:nil repeats:YES];
-    //
-    //                [time fire];
-    //                message1 = @"发送验证码成功";
-    //
-    //            }
-    //            [MBProgressHUD showSuccess:message1 toView:self.view];
-    //
-    //        } failed:^(NSError *error) {
-    //            [MBProgressHUD showError:@"请求失败" toView:self.view];
-    //
-    //        }];
-    //    });
-    //
-}
 -(void)BackLast:(UIButton *)btn{
     
     [self.navigationController popViewControllerAnimated:YES];

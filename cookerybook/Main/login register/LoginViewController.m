@@ -26,9 +26,7 @@
     //标题
     UILabel *titleLab;
     //头像
-    
     UIImageView *imageviewHead;
-    
     //用户名
     UITextField *userNameField;
     //密码
@@ -36,31 +34,19 @@
     //登录按钮
     UIButton *loginBt;
     //注册
-    
     UIButton *registerBt;
     //找回密码
-    
     UIButton *FindPassWord;
-    
     //登录url
     NSString *LOGIN;
-    
-    
     NSDictionary *UserDic;
-    
-    
     UIScrollView *scroll_;
-    
-    
     //保存密码的图片
     UIImageView *imageviewSelect;
-    
     //初始化
     NSUserDefaults *usermy;
     NSMutableArray * friendArr; //好友数组
 }
-
-
 @end
 
 @implementation LoginViewController
@@ -70,13 +56,13 @@
     // Do any additional setup after loading the view.
     usermy = [NSUserDefaults standardUserDefaults];
     self.view.backgroundColor=[UIColor colorWithHexString:@"#efeff4"];
-    
     data_=[[NSMutableData alloc]init];
     self.view.userInteractionEnabled=YES;
     UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hide:)];
     [self.view addGestureRecognizer:tap];
     [self initUI];
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden=YES;
 }
@@ -85,21 +71,16 @@
     [userNameField resignFirstResponder];
     [passWordField resignFirstResponder];
 }
+
 -(void)initUI{
-    
     UIButton *CacleBt=[[UIButton alloc]init];
-    
     [self.view addSubview:CacleBt];
     [CacleBt addTarget:self action:@selector(cacle) forControlEvents:UIControlEventTouchUpInside];
-    
     [CacleBt mas_makeConstraints:^(MASConstraintMaker *make) {
-        
         make.left.equalTo(self.view).with.offset(12*scaleX);
         make.top.equalTo(self.view).with.offset(30*scaleY);
         make.size.mas_equalTo(CGSizeMake(30*scaleX, 30*scaleY));
-        
     }];
-    
     UIImageView *imaheView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"x"]];
     [CacleBt addSubview:imaheView];
     [imaheView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -107,11 +88,9 @@
         make.size.mas_equalTo(CGSizeMake(15*scaleX, 15*scaleY));
     }];
     
-    
     //头像
     imageviewHead = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ying"]];
     [self.view addSubview:imageviewHead];
-    
     imageviewHead.layer.masksToBounds = YES;
     imageviewHead.layer.cornerRadius = 50*scaleX;
     [imageviewHead mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -129,8 +108,7 @@
         make.top.mas_equalTo(self.view.mas_top).offset(219*scaleY);
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, 50*scaleY));
     }];
-    
-    
+
     UIImageView *imageviewName=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"username"]];
     [userNameView addSubview:imageviewName];
     [imageviewName mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,7 +128,6 @@
     }];
     
     UIImageView *imageviewpass = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"password"]];
-    
     [passWordView addSubview:imageviewpass];
     [imageviewpass mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(passWordView.mas_left).offset(10*scaleX);
@@ -162,7 +139,6 @@
     userNameField.placeholder=@"请输入账号";
     userNameField.delegate=self;
     userNameField.font=[UIFont systemFontOfSize:16];
-    
     [userNameField addTarget:self action:@selector(userNameFileChanged) forControlEvents:UIControlEventEditingChanged];
     userNameField.clearButtonMode = UITextFieldViewModeWhileEditing;
     userNameField.autocapitalizationType = UITextAutocapitalizationTypeNone;
@@ -179,7 +155,6 @@
     passWordField.delegate=self;
     passWordField.secureTextEntry=YES;
     passWordField.font=[UIFont systemFontOfSize:16];
-    
     passWordField.clearButtonMode = UITextFieldViewModeWhileEditing;
     passWordField.autocapitalizationType = UITextAutocapitalizationTypeNone;
     [passWordView addSubview:passWordField];
@@ -270,16 +245,13 @@
         make.size.mas_equalTo(CGSizeMake(60, 20));
     }];
     
-    
     FindPassWord=[UIButton buttonWithType:UIButtonTypeCustom];
     FindPassWord.layer.cornerRadius=5;
     FindPassWord.tag=102;
     FindPassWord.titleLabel.font=[UIFont systemFontOfSize:14];
     [FindPassWord setTitle:@"忘记密码？" forState:UIControlStateNormal];
     [FindPassWord setTitleColor:[UIColor colorWithHexString:@"#646464"] forState:UIControlStateNormal];
-    
     [FindPassWord addTarget:self action:@selector(jump:) forControlEvents:UIControlEventTouchUpInside];
-    
     FindPassWord.titleLabel.font=[UIFont systemFontOfSize:13];
     [self.view addSubview:FindPassWord];
     [FindPassWord mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -289,7 +261,9 @@
     }];
     [self addkeyBoardObservew];
 }
+
 static int flagKeepPassword=0;
+
 -(void)KeepPassword2:(UITapGestureRecognizer *)tap{
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     if (flagKeepPassword==1) {
@@ -303,13 +277,10 @@ static int flagKeepPassword=0;
         flagKeepPassword=1;
         [userDefaults setObject:@"1" forKey:@"FLAGKEEPPASSWORD"];
     }
-    
 }
 
 -(void)cacle{
-    
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
-        
     }];
 }
 
@@ -325,49 +296,41 @@ static int flagKeepPassword=0;
     //监听键盘的消失
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHidden:) name:UIKeyboardWillHideNotification object:nil];
 }
+
 -(void)keyboardHidden:(NSNotification *)notification
 {
     self.view.frame=CGRectMake(0, 0, kScreenWidth, kScreenHeight);
     [UIView commitAnimations];
 }
+
 -(void)keyboardShow:(NSNotification *)notification
 {
     self.view.frame=CGRectMake(0, -100*scaleY, kScreenWidth, kScreenHeight);
-    
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
     return YES;
-    
 }
+
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
     if ([textField isEqual:userNameField]&&![textField.text isEqualToString:@""]) {
-        
         [passWordField becomeFirstResponder];
-        
     }else if ([textField isEqual:passWordField]){
-        
         [textField resignFirstResponder];
-        
     }
-    
     return YES;
 }
+
 #pragma mark --注册 找回密码
 -(void)jump:(UIButton*)bt{
-    
     if (bt.tag==101) {
         RegisterViewController *Re=[[RegisterViewController alloc]init];
-        
         self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationController pushViewController:Re animated:YES];
     }else if (bt.tag==102){
         FindPasswordVC *find=[[FindPasswordVC alloc]init];
         self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         [self.navigationController pushViewController:find animated:YES];
-        
     }
 }
 
@@ -387,7 +350,6 @@ static int flagKeepPassword=0;
     [self.view addSubview:progress];
     [progress show:YES];
     [BmobUser loginInbackgroundWithAccount:userNameField.text andPassword:passWordField.text block:^(BmobUser *user, NSError *error) {
-        
         if (user) {
             NSLog(@"%@",user);
             AppDelegate *app=(AppDelegate*)[UIApplication sharedApplication].delegate;
@@ -401,111 +363,6 @@ static int flagKeepPassword=0;
             [alert show];
         }
     }];
-    
-    //
-    //
-    //    if ([userNameField.text isEqualToString:@""]||[passWordField.text isEqualToString:@""]) {
-    //
-    //        [MBProgressHUD showError:@"账户或密码为空" toView:self.view];
-    //        return;
-    //    }
-    //    if (!([RegexTool validateUserPhone:userNameField.text] || [RegexTool validateEmail:userNameField.text])){
-    //
-    //        [MBProgressHUD showError:@"用户名格式错误" toView:self.view];
-    //        return;
-    //    }
-    //
-    //    NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
-    //    NSString *imei=[user objectForKey:@"UUID"];
-    //
-    //
-    //    if([RegexTool validateUserPhone:userNameField.text] || [RegexTool validateEmail:userNameField.text]){
-    //
-    //        LOGIN=[NSString stringWithFormat:@"http://api.yinglaijinrong.com/api/auth?username=%@&password=%@&imei=%@",userNameField.text,passWordField.text,imei];
-    //
-    //        //登录中
-    //        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    //        hud.labelText = @"登录中...";
-    //
-    //        //登录的方法
-    //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    //            [AFNetClient POST_Path2:LOGIN completed:^(NSData *stringData, id JSONDict) {
-    //
-    //                [hud  hide:YES];
-    //
-    //                UserDic=JSONDict;
-    //
-    //
-    //                NSString *Code=[NSString stringWithFormat:@"%@",[JSONDict objectForKey:@"Code"]];
-    //
-    //                if ([Code isEqualToString:@"0"]) {
-    //                    [userNameField resignFirstResponder];
-    //                    [passWordField resignFirstResponder];
-    //
-    //
-    //                    NSMutableArray *arrcount = [[NSMutableArray alloc] init];
-    //                    //保存密码
-    //                    if (flagKeepPassword==1) {
-    //
-    //                        KeepAcountModel *model = [[KeepAcountModel alloc] init];
-    //                        model.username = userNameField.text;
-    //                        model.password = passWordField.text;
-    //                        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    //                        [arrcount addObject:model];
-    //                        NSData *arrydata = [NSKeyedArchiver archivedDataWithRootObject:arrcount];
-    //                        [userDefaults setObject:arrydata forKey:@"KEEPACCOUNT1"];
-    //
-    //                    }
-    //                    if ([UserInfo getLoginAccountStr]==nil) {
-    //                        [UserInfo saveLoginAccount:userNameField.text WithLastAcount:nil];
-    //
-    //                    }else{
-    //
-    //                        [UserInfo saveLoginAccount:userNameField.text WithLastAcount:[UserInfo getLoginAccountStr]];
-    //                    }
-    //
-    //                    app.tabvc = [[LoginTabVC alloc] init];
-    //                    app.window.rootViewController = app.tabvc;
-    //
-    //
-    //                    NSString *Fullname=[[[JSONDict objectForKey:@"Data"] objectForKey:@"Profile"] objectForKey:@"Fullname"];
-    //                    NSLog(@"Fullname=%@",Fullname);
-    //
-    //                    //保存Token的值
-    //                    [UserInfo saveToken:[[JSONDict objectForKey:@"Data"] objectForKey:@"Token"]];
-    //                    [UserInfo SaveUserID:[[[JSONDict objectForKey:@"Data"] objectForKey:@"Profile"] objectForKey:@"ProfileId"]];
-    //
-    //                    //get请求获取用户简介
-    //                    [self getProfile];
-    //                    if ([UserInfo getLoginAccount] ==NO) {
-    //                        [taskDatabase deleteFriendTableAllMessage];
-    ////                        [taskDatabase deleteWorkmateTableAllMessage];
-    //                        [taskDatabase deleteChatTableAllMessage];
-    //                    }
-    //
-    //                    //处于登录状态
-    //                    NSUserDefaults *user=[NSUserDefaults standardUserDefaults];
-    //                    [user setObject:@"1" forKey:@"YESORNOTLOGIN"];
-    //
-    //                    //请求融云token和连接融云服务器
-    //                    [self connectRongyunServie];
-    //
-    //                }else if ([Code isEqualToString:@"1"]){
-    //
-    //                    [MBProgressHUD showError:[JSONDict  objectForKey:@"Message"]];
-    //
-    //                }
-    //            } failed:^(NSError *error) {
-    //
-    //                [hud  hide:YES];
-    //                [MBProgressHUD showError:@"连接错误" toView:self.view];
-    //
-    //            }];
-    //
-    //        });
-    //    }
-    //
-    
 }
 
 - (void)didReceiveMemoryWarning {

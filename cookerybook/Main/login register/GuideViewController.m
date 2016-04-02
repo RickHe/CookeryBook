@@ -26,9 +26,7 @@
     [super viewDidLoad];
     self.navigationController.navigationBarHidden=YES;
     self.view.backgroundColor=[UIColor colorWithRed:230.0/255.0 green:230.0/255.0 blue:230.0/255.0 alpha:100];
-    
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    
     [self  p_initGuide];   //加载新用户指导页面
     [self  p_initpagecontrol];
 }
@@ -48,7 +46,6 @@
     [self.view addSubview:pageControl];
 }
 
-
 -(void)p_initGuide
 {
     NSArray *iPhone4Garray=@[@"nav_1.jpg",@"nav_2.jpg",@"nav_3.jpg"];//iphone5
@@ -67,7 +64,6 @@
         imgView.image=[UIImage  imageNamed:iPhone4Garray[i]];
         imgView.contentMode = UIViewContentModeScaleAspectFill;
         [dyScrollView addSubview:imgView];
-        
         if (i == [iPhone4Garray  count]-1)
         {
             [imgView setUserInteractionEnabled:YES];
@@ -84,7 +80,6 @@
         }
     }
 }
-
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -124,7 +119,6 @@
     BaseNaviViewController *base = [[BaseNaviViewController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
     app.window.rootViewController =base;
 }
-
 
 -(void)viewWillDisappear:(BOOL)animated
 {

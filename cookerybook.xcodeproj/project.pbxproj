@@ -600,28 +600,7 @@
 		F90A3B761C9642DB001696EC /* login register */ = {
 			isa = PBXGroup;
 			children = (
-				F90A3BE41C964E70001696EC /* ying.png */,
-				F90A3B8C1C964407001696EC /* nav_1.jpg */,
-				F90A3B8D1C964407001696EC /* nav_2.jpg */,
-				F90A3B8E1C964407001696EC /* nav_3.jpg */,
-				F90A3BC41C964E37001696EC /* Login-choose@2x.png */,
-				F90A3BC51C964E37001696EC /* Login-choose@3x.png */,
-				F90A3BC61C964E37001696EC /* Login-choose-none@2x.png */,
-				F90A3BC71C964E37001696EC /* Login-choose-none@3x.png */,
-				F90A3BC81C964E37001696EC /* Button-forget@2x.png */,
-				F90A3BC91C964E37001696EC /* Button-forget@3x.png */,
-				F90A3BCA1C964E37001696EC /* button@2x.png */,
-				F90A3BCB1C964E37001696EC /* button@3x.png */,
-				F90A3BCC1C964E37001696EC /* face@2x.png */,
-				F90A3BCD1C964E37001696EC /* face@3x.png */,
-				F90A3BCE1C964E37001696EC /* password@2x.png */,
-				F90A3BCF1C964E37001696EC /* password@3x.png */,
-				F90A3BD01C964E37001696EC /* username@2x.png */,
-				F90A3BD11C964E37001696EC /* username@3x.png */,
-				F9C1293A1CA50FA1000F0B38 /* Arrow-white@2x.png */,
-				F9C1293B1CA50FA1000F0B38 /* Arrow-white@3x.png */,
-				F90A3BD21C964E37001696EC /* x@2x.png */,
-				F90A3BD31C964E37001696EC /* x@3x.png */,
+				F926DCDC1CAFF1FE00447C26 /* img */,
 				F90A3B771C9642DB001696EC /* ConsumerAgreementVC.h */,
 				F90A3B781C9642DB001696EC /* ConsumerAgreementVC.m */,
 				F90A3B791C9642DB001696EC /* FindPasswordVC.h */,
@@ -678,6 +657,35 @@
 				F9143EDD1CA7B86600B72023 /* XYdeletepicyure@3x.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		F926DCDC1CAFF1FE00447C26 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				F90A3BE41C964E70001696EC /* ying.png */,
+				F90A3B8C1C964407001696EC /* nav_1.jpg */,
+				F90A3B8D1C964407001696EC /* nav_2.jpg */,
+				F90A3B8E1C964407001696EC /* nav_3.jpg */,
+				F90A3BC41C964E37001696EC /* Login-choose@2x.png */,
+				F90A3BC51C964E37001696EC /* Login-choose@3x.png */,
+				F90A3BC61C964E37001696EC /* Login-choose-none@2x.png */,
+				F90A3BC71C964E37001696EC /* Login-choose-none@3x.png */,
+				F90A3BC81C964E37001696EC /* Button-forget@2x.png */,
+				F90A3BC91C964E37001696EC /* Button-forget@3x.png */,
+				F90A3BCA1C964E37001696EC /* button@2x.png */,
+				F90A3BCB1C964E37001696EC /* button@3x.png */,
+				F90A3BCC1C964E37001696EC /* face@2x.png */,
+				F90A3BCD1C964E37001696EC /* face@3x.png */,
+				F90A3BCE1C964E37001696EC /* password@2x.png */,
+				F90A3BCF1C964E37001696EC /* password@3x.png */,
+				F90A3BD01C964E37001696EC /* username@2x.png */,
+				F90A3BD11C964E37001696EC /* username@3x.png */,
+				F9C1293A1CA50FA1000F0B38 /* Arrow-white@2x.png */,
+				F9C1293B1CA50FA1000F0B38 /* Arrow-white@3x.png */,
+				F90A3BD21C964E37001696EC /* x@2x.png */,
+				F90A3BD31C964E37001696EC /* x@3x.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 		F9695BEA1CA9468400EB7063 /* framework */ = {

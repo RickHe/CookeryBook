@@ -21,12 +21,17 @@
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
     self.navigationController.navigationBar.tintColor=[UIColor whiteColor];
     self.title=@"用户协议";
-    
-    
 }
+
+/**
+ *  隐藏导航栏
+ *
+ *  @param animated 
+ */
 -(void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.hidden=NO;
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
