@@ -1,7 +1,7 @@
 # CookeryBook
 菜谱助手
 
-演示如下
+演示如下:
 
 ![github](http://a3.qpic.cn/psb?/V10dnTrg3CUIIp/8igzgTmpN7ZBp1ycthSHnWCD9EP3W3t0F8FVsRKIcCw!/b/dOMAAAAAAAAA&bo=LgE5AgAAAAACGCg!&rf=viewer_4)
 ![github](http://a2.qpic.cn/psb?/V10dnTrg3CUIIp/lwQWt.5bVcVXDbSJ1Kd8z75zRg*9MDXqdTwBEzf69h8!/b/dG8BAAAAAAAA&bo=NAE7AgAAAAACGDA!&rf=viewer_4)
